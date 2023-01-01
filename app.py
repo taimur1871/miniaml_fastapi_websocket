@@ -1,7 +1,5 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
-Created on Tue Jan 26
+main app
 """
 
 # 1. Library imports
@@ -13,4 +11,4 @@ app = FastAPI()
 
 # 1. Run the API with uvicorn
 if __name__ == '__main__':
-    uvicorn.run('main:app', host='0.0.0.0', port=8000, reload = True)
+    uvicorn.run('main:app', host='0.0.0.0', port=9010, reload = True)
