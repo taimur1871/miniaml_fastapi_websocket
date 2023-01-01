@@ -4,13 +4,16 @@
         <title>Chat</title>
     </head>
     <body>
-        <h1>WebSocket Chat</h1>
+        <h1>WS Loop</h1>
         <form action="" onsubmit="sendMessage(event)">
-            <input type="text" id="messageText" autocomplete="off"/>
             <button>Send</button>
-        </form>
+        </form><br>
+        <button onclick="disconnect()" id="end">Disconnect</button>
         <ul id='messages'>
         </ul>
+        <form action="/conn">
+            <button>Conn</button>
+        </form>
         <script>
             var ws = new WebSocket("ws://localhost:8000/ws");
             ws.onmessage = function(event) {
@@ -25,6 +28,11 @@
                 ws.send(input.value)
                 input.value = ''
                 event.preventDefault()
+            }
+            function disconnect() {
+                ws.disconnect()
+                var ending = document.getElementById('end')
+                ending.innerHTML = 'Disconnected'
             }
         </script>
     </body>
